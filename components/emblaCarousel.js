@@ -9,7 +9,6 @@ export default function EmblaCarousel( {slides} ) {
     if (scroll) {
       scroll.on('call', function(e) {
         setCurrent(e)
-        console.log(e)
       });
     }
   }, [scroll])
@@ -39,19 +38,25 @@ export default function EmblaCarousel( {slides} ) {
       </div>
       <div className="flex flex-wrap p-8">
       <div className="ml-auto w-[30%] flex flex-col pt-20">
-          {slides.map((item, i) => (
+          {slides.map((item, i) => {
+            return (
             <div className="relative flex" key={i}>
-              <div className={`${item.classes} relative overflow-hidden mt-5`}>
-                <img
-                  className={`will-change-transform trasition-translate ease-in-out duration-500 ${ i == current ? 'scale-[1.15]' : 'scale-100' }`}
-                  src={item.image}
-                  alt="A cool cat."
-                  onClick={() => setCurrent(i)}
-                  data-scroll data-scroll-repeat data-scroll-call={i} data-scroll-offset="80%, 20%"
-                />
+              <div className={`bg-red-500 relative overflow-hidden ${item.classes}`}>
+                <div className="scale-[1.2]">
+                  <div className={`relative overflow-hidden`} data-scroll data-scroll-speed={(i - i + 1) - 0.75}>
+                    <img
+                      className={`will-change-transform trasition-translate ease-in-out duration-500 ${ i == current ? 'scale-[1.15]' : 'scale-[1]' }`}
+                      src={item.image}
+                      alt="A cool cat."
+                      onClick={() => setCurrent(i)}
+                      data-scroll data-scroll-repeat data-scroll-call={i} data-scroll-offset="80%, 20%"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </>

@@ -9,6 +9,7 @@ import { NextSeo } from 'next-seo'
 import { useRef } from 'react'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import EmblaCarousel from '@/components/emblaCarousel'
+import FPSStats from "react-fps-stats";
 
 const slides = [{
   classes: 'mr-auto mb-16',
@@ -193,6 +194,8 @@ export default function Home() {
   return (
     <Layout>
       <NextSeo title="Home" />
+
+      <FPSStats top="auto" bottom="0" right="0" left="auto" />
       
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.045 }}
