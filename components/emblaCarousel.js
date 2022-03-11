@@ -20,7 +20,7 @@ export default function EmblaCarousel( {slides} ) {
         <div className="w-full h-[70vh] relative overflow-hidden bg-gray-100 mt-[55px]">
           {slides.map((item, i) => (
             <img
-              className={`w-full h-full will-change-transform absolute inset-0 object-cover transition-all ease-in-out duration-500 ${ i == current ? 'opacity-100 scale-100' : 'opacity-0 scale-110' }`}
+              className={`w-full h-full will-change-transform absolute inset-0 object-cover ${ i == current ? 'opacity-100' : 'opacity-0' }`}
               src={item.image}
               alt="A cool cat."
               key={i}
@@ -41,7 +41,7 @@ export default function EmblaCarousel( {slides} ) {
         </div>
       </div>
       <div className="flex flex-wrap p-8">
-        <div className="ml-auto w-[30%] flex flex-col">
+      <div className="ml-auto w-[30%] flex flex-col">
           {slides.map((item, i) => (
             <div className="relative flex" key={i}>
               <div className={`${item.classes} relative overflow-hidden mt-5`}>
