@@ -15,6 +15,8 @@
 /* Simple defaults */
 body {
   @apply font-sans antialiased text-[#212121] bg-white;
+
+  font-variant-numeric: slashed-zero;
 }
 
 
